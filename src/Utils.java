@@ -25,11 +25,11 @@ public class Utils {
 
 
     /***
-     *   private double votesDem, votesGOP, totalVotes, perDem, perGOP;
+     *   private double 1 votesDem, 2 votesGOP, 3 totalVotes, 4 perDem, 5 perGOP;
      *     private int !diff;
-     *     private double perPointDiff;
-     *     private String stateAbbr, countyName;
-     *     private int combinedFips;
+     *     private double length-4 perPointDiff;
+     *     private String length-3 stateAbbr, length-2 countyName;
+     *     private int length-1 combinedFips;
      */
 
 
@@ -40,11 +40,48 @@ public class Utils {
         for (int i = 1; i < lines.length; i++) {
             String current = lines[i];
             ElectionResult temp = new ElectionResult();
-
-
+            temp.setDiff(getDiff(current));
+            
+            String[] commaBreaks = current.split(",");
+            temp.setVotesDem(getVotesDem(commaBreaks));
+            temp.setVotesGOP(getVotesGop(commaBreaks));
+            temp.setTotalVotes(getTotalVotes(commaBreaks));
+            temp.setPerDem((getPerDem(commaBreaks)));
+            temp.setPerGOP((getPerGop(commaBreaks)));
+            temp.setPerPointDiff((getPerPointDiff(commaBreaks)));
+            temp.setStateAbbr((getStateAbbr(commaBreaks)));
+            temp.setCountyName((getCountyName(commaBreaks)));
+            temp.setCombinedFips((getCombinedFips(commaBreaks)));
         }
 
         return out;
+    }
+
+    private static int getCombinedFips(String[] commaBreaks) {
+    }
+
+    private static String getCountyName(String[] commaBreaks) {
+    }
+
+    private static String getStateAbbr(String[] commaBreaks) {
+    }
+
+    private static double getPerPointDiff(String[] commaBreaks) {
+    }
+
+    private static double getPerGop(String[] commaBreaks) {
+    }
+
+    private static double getPerDem(String[] commaBreaks) {
+    }
+
+    private static double getTotalVotes(String[] commaBreaks) {
+    }
+
+    private static double getVotesGop(String[] current) {
+    }
+
+    private static double getVotesDem(String[] current) {
     }
 
     private static int getDiff(String current) {
