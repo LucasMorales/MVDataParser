@@ -101,5 +101,5 @@ public class ElectionResult {
                 ", combinedFips=" + combinedFips +
                 '}';
     }
-}
+
 }
