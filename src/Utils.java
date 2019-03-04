@@ -6,7 +6,6 @@ import java.util.Scanner;
 public class Utils {
 
 
-
     public static String readFileAsString(String filepath) {
         StringBuilder output = new StringBuilder();
 
@@ -22,16 +21,6 @@ public class Utils {
 
         return output.toString();
     }
-
-
-    /***
-     *   private double 1 votesDem, 2 votesGOP, 3 totalVotes, 4 perDem, 5 perGOP;
-     *     private int !diff;
-     *     private double length-4 perPointDiff;
-     *     private String length-3 stateAbbr, length-2 countyName;
-     *     private int length-1 combinedFips;
-     */
-
 
     public static ArrayList<ElectionResult> parse2016PresidentialResults(String csv_data) {
         String[] lines = csv_data.split("\n");
