@@ -52,6 +52,8 @@ public class Utils {
             temp.setStateAbbr((getStateAbbr(commaBreaks)));
             temp.setCountyName((getCountyName(commaBreaks)));
             temp.setCombinedFips((getCombinedFips(commaBreaks)));
+
+            out.add(temp);
         }
 
         return out;
