@@ -10,6 +10,7 @@ public class Main {
         // test data reading
         String data = Utils.readFileAsString("data/2016_Presidential_Results.csv");
         System.out.println(data);
+
     }
 
 }
