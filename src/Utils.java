@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Utils {
@@ -74,6 +75,7 @@ public class Utils {
 
     private static int getDiff(String current) {
         String[] temp = current.split("\"");
+        System.out.println(Arrays.toString(temp));
         String diff = temp[1];
         if ( diff.indexOf(",") != -1 ) {
             int out = Integer.parseInt(diff.replace(",", ""));
