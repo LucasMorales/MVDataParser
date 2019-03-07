@@ -76,9 +76,8 @@ public class Utils {
     private static int getDiff(String current) {
         String[] temp = current.split("\"");
         String diff = temp[1];
-        if ( diff.indexOf(",") != -1 ) {
-            int out = Integer.parseInt(diff.replace(",", ""));
-            return out;
+        if (diff.contains(",")) {
+            return Integer.parseInt(diff.replace(",", ""));
         } else return Integer.parseInt(diff);
     }
 }
