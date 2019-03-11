@@ -1,5 +1,6 @@
 import java.io.File;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -23,31 +24,43 @@ public class Utils {
         return output.toString();
     }
 
-    public static ArrayList<ElectionResult> parse2016PresidentialResults(String csv_data) {
-        String[] lines = csv_data.split("\n");
-        ArrayList<ElectionResult> out = new ArrayList<>();
+    public static ArrayList<Election2016> parseElection2016(String csv_data) {
 
-        for (int i = 1; i < lines.length; i++) {
-            String current = lines[i];
-            ElectionResult temp = new ElectionResult();
-            temp.setDiff(getDiff(current));
-            
-            String[] commaBreaks = current.split(",");
-            temp.setVotesDem(getVotesDem(commaBreaks));
-            temp.setVotesGOP(getVotesGop(commaBreaks));
-            temp.setTotalVotes(getTotalVotes(commaBreaks));
-            temp.setPerDem((getPerDem(commaBreaks)));
-            temp.setPerGOP((getPerGop(commaBreaks)));
-            temp.setPerPointDiff((getPerPointDiff(commaBreaks)));
-            temp.setStateAbbr((getStateAbbr(commaBreaks)));
-            temp.setCountyName((getCountyName(commaBreaks)));
-            temp.setCombinedFips((getCombinedFips(commaBreaks)));
-
-            out.add(temp);
-        }
-
-        return out;
     }
+
+    public static ArrayList<Education2016> parseEducation2016(String csv_data)  {
+
+    }
+
+    public static ArrayList<Employment2016> parseEmployment2016(String csv_data) {
+
+    }
+
+//    public static ArrayList<ElectionResult> parse2016PresidentialResults(String csv_data) {
+//        String[] lines = csv_data.split("\n");
+//        ArrayList<ElectionResult> out = new ArrayList<>();
+//
+//        for (int i = 1; i < lines.length; i++) {
+//            String current = lines[i];
+//            ElectionResult temp = new ElectionResult();
+//            temp.setDiff(getDiff(current));
+//
+//            String[] commaBreaks = current.split(",");
+//            temp.setVotesDem(getVotesDem(commaBreaks));
+//            temp.setVotesGOP(getVotesGop(commaBreaks));
+//            temp.setTotalVotes(getTotalVotes(commaBreaks));
+//            temp.setPerDem((getPerDem(commaBreaks)));
+//            temp.setPerGOP((getPerGop(commaBreaks)));
+//            temp.setPerPointDiff((getPerPointDiff(commaBreaks)));
+//            temp.setStateAbbr((getStateAbbr(commaBreaks)));
+//            temp.setCountyName((getCountyName(commaBreaks)));
+//            temp.setCombinedFips((getCombinedFips(commaBreaks)));
+//
+//            out.add(temp);
+//        }
+//
+//        return out;
+//    }
 
     private static int getCombinedFips(String[] commaBreaks) {
         return Integer.parseInt(commaBreaks[commaBreaks.length - 1]);
