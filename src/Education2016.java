@@ -3,6 +3,7 @@ public class Education2016 {
     private double onlyHighSchool;
     private double someCollege;
     private double bachelorsOrMore;
+    private int fips;
 
     public Education2016() { }
 

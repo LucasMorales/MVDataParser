@@ -4,6 +4,7 @@ public class Employment2016 {
     private int employedLaborForce;
     private int unemployedLaborForce;
     private double unemployedPercent;
+    private int fips;
 
     public Employment2016() { }
 

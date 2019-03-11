@@ -25,7 +25,21 @@ public class Utils {
     }
 
     public static ArrayList<Election2016> parseElection2016(String csv_data) {
+        String[] lines = csv_data.split(("\n"));
+        ArrayList<Election2016> out = new ArrayList<>();
 
+        for (int i = 1; i < lines.length; i++) {
+            String current = lines[i];
+            Election2016 temp = new Election2016();
+
+            String[] commaBreaks = current.split(",");
+            temp.setDemVotes(getVotesDem(commaBreaks));
+            temp.setGopVotes(getVotesGop(commaBreaks));
+            temp.setTotalVotes(getTotalVotes(commaBreaks));
+
+            out.add(temp);
+        }
+        return out;
     }
 
     public static ArrayList<Education2016> parseEducation2016(String csv_data)  {
