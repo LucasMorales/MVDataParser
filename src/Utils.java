@@ -36,6 +36,7 @@ public class Utils {
             temp.setDemVotes(getVotesDem(commaBreaks));
             temp.setGopVotes(getVotesGop(commaBreaks));
             temp.setTotalVotes(getTotalVotes(commaBreaks));
+            temp.setFips(getCombinedFips(commaBreaks));
 
             out.add(temp);
         }
@@ -43,7 +44,23 @@ public class Utils {
     }
 
     public static ArrayList<Education2016> parseEducation2016(String csv_data)  {
+        String[] lines = csv_data.split(("\n"));
+        ArrayList<Education2016> out = new ArrayList<>();
 
+        for (int i = 5; i < lines.length; i++) {
+            String current = lines[i];
+            Education2016 temp = new Education2016();
+
+            String[] commaBreaks = current.split(",");
+            temp.setFips(getEducationFips(commaBreaks));
+            temp.setNoHighSchool(getNoHighSchool(commaBreaks));
+            temp.setOnlyHighSchool(getOnlyHighSchool(commaBreaks));
+            temp.setSomeCollege(getSomeCollege(commaBreaks));
+            temp.setBachelorsOrMore(getBachs(commaBreaks));
+
+            out.add(temp);
+        }
+        return out;
     }
 
     public static ArrayList<Employment2016> parseEmployment2016(String csv_data) {
@@ -77,7 +94,8 @@ public class Utils {
 //    }
 
     private static int getCombinedFips(String[] commaBreaks) {
-        return Integer.parseInt(commaBreaks[commaBreaks.length - 1]);
+        String temp = commaBreaks[commaBreaks.length - 1];
+        return Integer.parseInt("0" + temp);
     }
 
     private static String getCountyName(String[] commaBreaks) { return commaBreaks[commaBreaks.length - 2]; }
