@@ -12,6 +12,14 @@ public class Employment2016 {
         return totalLaborForce;
     }
 
+    public int getFips() {
+        return fips;
+    }
+
+    public void setFips(int fips) {
+        this.fips = fips;
+    }
+
     public void setTotalLaborForce(int totalLaborForce) {
         this.totalLaborForce = totalLaborForce;
     }

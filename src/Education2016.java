@@ -5,6 +5,14 @@ public class Education2016 {
     private double bachelorsOrMore;
     private int fips;
 
+    public int getFips() {
+        return fips;
+    }
+
+    public void setFips(int fips) {
+        this.fips = fips;
+    }
+
     public Education2016() { }
 
     public double getNoHighSchool() {

@@ -6,6 +6,14 @@ public class Election2016 {
     private double totalVotes;
     private int fips;
 
+    public int getFips() {
+        return fips;
+    }
+
+    public void setFips(int fips) {
+        this.fips = fips;
+    }
+
     public Election2016() {}
 
     public double getDemVotes() {
