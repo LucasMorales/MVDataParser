@@ -25,6 +25,17 @@ public class Utils {
     }
 
 
+    public static ArrayList<County> initializeCounties(String csv_data) {
+        String[] lines = csv_data.split(("\n"));
+        ArrayList<Election2016> out = new ArrayList<>();
+
+        for (int i = 1; i < lines.length; i++) {
+            String current = lines[i];
+            County temp = new County();
+            temp.setName();
+
+        }
+    }
 
     public static ArrayList<Election2016> parseElection2016(String csv_data) {
         String[] lines = csv_data.split(("\n"));
