@@ -12,6 +12,7 @@ public class Election2016 {
     }
 
     public void setDemVotes(double demVotes) {
+
         this.demVotes = demVotes;
     }
 
