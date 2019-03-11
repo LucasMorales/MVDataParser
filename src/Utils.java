@@ -63,11 +63,45 @@ public class Utils {
         return out;
     }
 
+
     public static ArrayList<Employment2016> parseEmployment2016(String csv_data) {
 
     }
 
-//    public static ArrayList<ElectionResult> parse2016PresidentialResults(String csv_data) {
+
+
+    private static int getEducationFips(String[] commaBreaks) { return Integer.parseInt(commaBreaks[0]); }
+
+    private static double getBachs(String[] commaBreaks) { return Integer.parseInt( commaBreaks[commaBreaks.length -1]); }
+
+    private static double getSomeCollege(String[] commaBreaks) { return Integer.parseInt( commaBreaks[commaBreaks.length - 2]); }
+
+    private static double getOnlyHighSchool(String[] commaBreaks) { return Integer.parseInt( commaBreaks[commaBreaks.length - 3]); }
+
+    private static double getNoHighSchool(String[] commaBreaks) { return Integer.parseInt( commaBreaks[commaBreaks.length -4]); }
+
+
+    private static int getCombinedFips(String[] commaBreaks) {
+        String temp = commaBreaks[commaBreaks.length - 1];
+        return Integer.parseInt("0" + temp);
+    }
+
+
+    private static double getTotalVotes(String[] commaBreaks) { return Double.parseDouble(commaBreaks[3]); }
+
+    private static double getVotesGop(String[] commaBreaks) { return Double.parseDouble(commaBreaks[2]); }
+
+    private static double getVotesDem(String[] commaBreaks) { return Double.parseDouble(commaBreaks[1]); }
+
+//    private static int getDiff(String current) {
+//        String[] temp = current.split("\"");
+//        String diff = temp[1];
+//        if (diff.contains(",")) {
+//            return Integer.parseInt(diff.replace(",", ""));
+//        } else return Integer.parseInt(diff);
+//    }
+
+//        public static ArrayList<ElectionResult> parse2016PresidentialResults(String csv_data) {
 //        String[] lines = csv_data.split("\n");
 //        ArrayList<ElectionResult> out = new ArrayList<>();
 //
@@ -93,36 +127,18 @@ public class Utils {
 //        return out;
 //    }
 
-    private static int getCombinedFips(String[] commaBreaks) {
-        String temp = commaBreaks[commaBreaks.length - 1];
-        return Integer.parseInt("0" + temp);
-    }
-
-    private static String getCountyName(String[] commaBreaks) { return commaBreaks[commaBreaks.length - 2]; }
-
-    private static String getStateAbbr(String[] commaBreaks) { return commaBreaks[commaBreaks.length -3];}
-
-    private static double getPerPointDiff(String[] commaBreaks) {
-        String temp = commaBreaks[commaBreaks.length - 4];
-        temp = temp.substring(0,temp.length() - 1);
-        return Double.parseDouble(temp);
-    }
-
-    private static double getPerGop(String[] commaBreaks) { return Double.parseDouble(commaBreaks[5]); }
-
-    private static double getPerDem(String[] commaBreaks) { return Double.parseDouble(commaBreaks[4]); }
-
-    private static double getTotalVotes(String[] commaBreaks) { return Double.parseDouble(commaBreaks[3]); }
-
-    private static double getVotesGop(String[] commaBreaks) { return Double.parseDouble(commaBreaks[2]); }
-
-    private static double getVotesDem(String[] commaBreaks) { return Double.parseDouble(commaBreaks[1]); }
-
-    private static int getDiff(String current) {
-        String[] temp = current.split("\"");
-        String diff = temp[1];
-        if (diff.contains(",")) {
-            return Integer.parseInt(diff.replace(",", ""));
-        } else return Integer.parseInt(diff);
-    }
+//
+//    private static String getCountyName(String[] commaBreaks) { return commaBreaks[commaBreaks.length - 2]; }
+//
+//    private static String getStateAbbr(String[] commaBreaks) { return commaBreaks[commaBreaks.length -3];}
+//
+//    private static double getPerPointDiff(String[] commaBreaks) {
+//        String temp = commaBreaks[commaBreaks.length - 4];
+//        temp = temp.substring(0,temp.length() - 1);
+//        return Double.parseDouble(temp);
+//    }
+//
+//    private static double getPerGop(String[] commaBreaks) { return Double.parseDouble(commaBreaks[5]); }
+//
+//    private static double getPerDem(String[] commaBreaks) { return Double.parseDouble(commaBreaks[4]); }
 }
