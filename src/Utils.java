@@ -24,6 +24,16 @@ public class Utils {
         return output.toString();
     }
 
+    public static ArrayList<String> initializeStates(String csv_data) {
+        String[] lines = csv_data.split(("\n"));
+        ArrayList<State> out = new ArrayList<>();
+
+        for (int i =1 ; i < lines.length ; i++) {
+            String current = lines[i];
+            State state = new State();
+
+        }
+    }
 
     public static ArrayList<County> initializeCounties(String csv_data) {
         String[] lines = csv_data.split(("\n"));
