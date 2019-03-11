@@ -24,6 +24,8 @@ public class Utils {
         return output.toString();
     }
 
+
+
     public static ArrayList<Election2016> parseElection2016(String csv_data) {
         String[] lines = csv_data.split(("\n"));
         ArrayList<Election2016> out = new ArrayList<>();
@@ -65,7 +67,23 @@ public class Utils {
 
 
     public static ArrayList<Employment2016> parseEmployment2016(String csv_data) {
+        String[] lines = csv_data.split("\n");
+        ArrayList<Employment2016> out = new ArrayList<>();
 
+        for (int i = 9; i < lines.length; i++) {
+            String current = lines[i];
+            Employment2016 temp = new Employment2016();
+
+            String[] commaBreaks = current.split(",");
+            temp.setFips();
+            temp.setUnemployedPercent();
+            temp.setUnemployedLaborForce();
+            temp.setEmployedLaborForce();
+            temp.setTotalLaborForce();
+
+            out.add(temp);
+        }
+        return out;
     }
 
 
@@ -83,7 +101,8 @@ public class Utils {
 
     private static int getCombinedFips(String[] commaBreaks) {
         String temp = commaBreaks[commaBreaks.length - 1];
-        return Integer.parseInt("0" + temp);
+        if (temp.length() == 4 ) return Integer.parseInt("0" + temp);
+        return Integer.parseInt(temp);
     }
 
 
