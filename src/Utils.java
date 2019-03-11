@@ -30,6 +30,7 @@ public class Utils {
 
         for (int i =1 ; i < lines.length ; i++) {
             String current = lines[i];
+
             State state = new State();
 
         }
