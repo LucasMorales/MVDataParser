@@ -27,14 +27,32 @@ public class Utils {
 
     public static ArrayList<County> initializeCounties(String csv_data) {
         String[] lines = csv_data.split(("\n"));
-        ArrayList<Election2016> out = new ArrayList<>();
+        ArrayList<County> out = new ArrayList<>();
 
         for (int i = 1; i < lines.length; i++) {
             String current = lines[i];
             County temp = new County();
-            temp.setName();
 
+            String[] commaBreaks = current.split(",");
+            temp.setName(getName(commaBreaks));
+            temp.setFips(getFips(commaBreaks));
+
+            ArrayList<Election2016> electionData = parseElection2016("data/2016_Presidential_Results.csv");
+            for (Election2016 data : electionData) {
+                if (data.getFips() == temp.getFips()) temp.setVote2016(data);
+            }
+            ArrayList<Education2016> educationData = parseEducation2016("data/Education.csv");
+            for (Education2016 data : educationData) {
+                if (data.getFips() == temp.getFips()) temp.setEducation2016(data);
+            }
+            ArrayList<Employment2016> employment2016 = parseEmployment2016("data/Employment.csv");
+            for (Employment2016 data : employment2016) {
+                if (data.getFips() == temp.getFips()) temp.setEmployment2016(data);
+            }
+
+            out.add(temp);
         }
+        return out;
     }
 
     public static ArrayList<Election2016> parseElection2016(String csv_data) {

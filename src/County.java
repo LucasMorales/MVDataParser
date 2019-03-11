@@ -5,9 +5,7 @@ public class County {
     private Education2016 education2016;
     private Employment2016 employment2016;
 
-    public County() {
-
-    }
+    public County() { }
 
     public String getName() {
         return name;
