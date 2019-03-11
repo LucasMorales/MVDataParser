@@ -24,16 +24,21 @@ public class Utils {
         return output.toString();
     }
 
-    public static ArrayList<String> initializeStates(String csv_data) {
+    public static ArrayList<State> initializeStates(String csv_data) {
         String[] lines = csv_data.split(("\n"));
         ArrayList<State> out = new ArrayList<>();
 
         for (int i =1 ; i < lines.length ; i++) {
             String current = lines[i];
+            State state = new State(stateName(current));
 
-            State state = new State();
-
+            ArrayList<County> counties = initializeCounties("data/2016_Presidential_Results.csv");
+            for (County county : counties ) {
+                if (county.getState = state.getName()) state.addCounty(county);
+            }
+            out.add(current);
         }
+        return out;
     }
 
     public static ArrayList<County> initializeCounties(String csv_data) {
@@ -47,6 +52,7 @@ public class Utils {
             String[] commaBreaks = current.split(",");
             temp.setName(getName(commaBreaks));
             temp.setFips(getFips(commaBreaks));
+            temp.setState(getState(commaBreaks));
 
             ArrayList<Election2016> electionData = parseElection2016("data/2016_Presidential_Results.csv");
             for (Election2016 data : electionData) {

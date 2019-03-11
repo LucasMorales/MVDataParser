@@ -5,14 +5,13 @@ public class State {
     private String name;
     private List<County> counties;
 
-    public State() {
-
+    public State(String name) {
+        this.name = name;
     }
 
     public String getName() {
         return name;
     }
-
 
     public void setName(String name) {
         this.name = name;
@@ -20,6 +19,10 @@ public class State {
 
     public List<County> getCounties() {
         return counties;
+    }
+
+    public County addCounty(County county) {
+        counties.add(county);
     }
 
     public void setCounties(List<County> counties) {
