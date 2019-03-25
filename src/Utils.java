@@ -4,9 +4,12 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Utils {
 
+    private static String csvRegx = ",(?=([^\"]*\"[^\"]*\")*(?![^\"]*\"))";
 
     public static String readFileAsString(String filepath) {
         StringBuilder output = new StringBuilder();
@@ -24,6 +27,27 @@ public class Utils {
         return output.toString();
     }
 
+
+
+
+    public static Matcher[] parseCSV(String csv_data, int firstLine) {
+        String[] lines = csv_data.split(("\n"));
+        Matcher[] out = new Matcher[lines.length - firstLine]; //may be off by one
+        Pattern csv = Pattern.compile(csvRegx);
+        for (int i = firstLine; i < lines.length ; i++) {
+            Matcher m = csv.matcher(lines[i]);
+            out[i - firstLine] = m;
+        }
+        return out;
+    }
+
+    public static String[][] getData(Matcher[] m,  int lineNum, int index){
+        
+    }
+
+
+
+    /*
     public static ArrayList<State> initializeStates(String csv_data) {
         String[] lines = csv_data.split(("\n"));
         ArrayList<State> out = new ArrayList<>();
@@ -158,6 +182,8 @@ public class Utils {
 
     private static double getVotesDem(String[] commaBreaks) { return Double.parseDouble(commaBreaks[1]); }
 
+    */
+
 //    private static int getDiff(String current) {
 //        String[] temp = current.split("\"");
 //        String diff = temp[1];
@@ -191,6 +217,7 @@ public class Utils {
 //
 //        return out;
 //    }
+
 
 //
 //    private static String getCountyName(String[] commaBreaks) { return commaBreaks[commaBreaks.length - 2]; }
