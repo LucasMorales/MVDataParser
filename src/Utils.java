@@ -3,6 +3,7 @@ import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -29,22 +30,18 @@ public class Utils {
 
 
 
-
-    public static Matcher[] parseCSV(String csv_data, int firstLine) {
+    public static HashMap<String, Double> parseCSV(String csv_data, int firstLine, int firstIndex, int index) {
         String[] lines = csv_data.split(("\n"));
-        Matcher[] out = new Matcher[lines.length - firstLine]; //may be off by one
+
+        HashMap<String, Double> out = new HashMap<>();
+
         Pattern csv = Pattern.compile(csvRegx);
         for (int i = firstLine; i < lines.length ; i++) {
-            Matcher m = csv.matcher(lines[i]);
-            out[i - firstLine] = m;
+            String[] temp = lines[i].split(csvRegx);
+            out.put(temp[firstIndex], Double.parseDouble(temp[index]));
         }
         return out;
     }
-
-    public static String[][] getData(Matcher[] m,  int lineNum, int index){
-        
-    }
-
 
 
     /*
