@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 public class Main {
 
-    private static String[][] compliledData = new String[51][4];
+    public static String[][] compliledData = new String[51][4];
     private static int counter = 0;
 
     public static void main(String[] args) {
@@ -49,6 +49,8 @@ public class Main {
             }
             System.out.println();
         }
+
+        ConvertToCSV.process();
     }
 
     private static void sort(String[][] arr) {
@@ -80,6 +82,10 @@ public class Main {
         str = str.replaceAll("\"","");
         str = str.replaceAll(",","");
         return str;
+    }
+
+    public static String[][] getArr() {
+        return compliledData;
     }
 
 }
