@@ -30,19 +30,19 @@ public class Utils {
 
 
 
-    public static HashMap<String, Double> parseCSV(String csv_data, int firstLine, int firstIndex, int index) {
+    public static HashMap<String, String> parseCSV(String csv_data, int firstLine, int firstIndex, int index) {
         String[] lines = csv_data.split(("\n"));
 
-        HashMap<String, Double> out = new HashMap<>();
+        HashMap<String, String> out = new HashMap<>();
 
         Pattern csv = Pattern.compile(csvRegx);
         for (int i = firstLine; i < lines.length ; i++) {
             String[] temp = lines[i].split(csvRegx);
-            out.put(temp[firstIndex], Double.parseDouble(temp[index]));
+            System.out.println(temp.length);
+            out.put(temp[firstIndex], temp[index]);
         }
         return out;
     }
-
 
     /*
     public static ArrayList<State> initializeStates(String csv_data) {
