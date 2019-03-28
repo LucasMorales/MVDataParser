@@ -27,7 +27,6 @@ public class Main {
             compliledData[counter][1] = stateEducation.get(name);
             compliledData[counter][2] = stateTrump.get(name);
             String funding = stateFunding.get(name);
-            System.out.println(funding);
             String fundingName = cleanUp(funding);
             compliledData[counter][3] = fundingName;
             counter++;
